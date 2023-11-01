@@ -1,4 +1,4 @@
-![hero image](https://raw.githubusercontent.com/HTLuff/sumbank/master/.github/hero.png)
+![hero image](https://github.com/HTLuff/sumbank/blob/main/hero.png)
 
 
 # Sum Bank
