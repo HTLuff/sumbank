@@ -1,6 +1,6 @@
 # SUM
 
-<img src="hero.png" alt="Logo" width="200" height="200">
+<img src="logo.png" alt="Logo" width="200" height="200">
 
 [![Go](https://img.shields.io/badge/go-1.16-blue.svg)](https://golang.org/)
 [![Makefile](https://img.shields.io/badge/Makefile-Yes-green.svg)](Makefile)
