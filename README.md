@@ -28,11 +28,12 @@ TBD
 
 1. Clone Repo
 2. Run `make` to create bin folder
-3. Run `make run` to run on port: 3000
-4. Run `make seed` to seed the database with initial account data
-5. POST request in Postman or Thunderclient to `http://localhost:3000/[endpoint]`
+3. Open Docker and create postgreSQL table
+4. Run `make run` to run on port: 3000
+5. Run `make seed` to seed the database with initial account data
+6. POST request in Postman or Thunderclient to `http://localhost:3000/[endpoint]`
     a. Sample endpoints: ["/login", ]
-6. Run tests by running `make test`
+7. Run tests by running `make test`
 
 To delete docker containers:
 
