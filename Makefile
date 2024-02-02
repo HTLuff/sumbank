@@ -9,3 +9,9 @@ test:
 
 seed:
 	@./bin/sumbank --seed
+
+db-up:
+	@docker-compose up -d
+
+db-down:
+	@docker-compose down

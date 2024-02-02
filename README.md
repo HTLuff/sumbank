@@ -16,9 +16,11 @@
 
 JSON banking API project in Golang with JWT authentication, Postgresql, and Docker.
 
-| Endpoint  | Input | Output |
-| --- | --- | --- |
-| `/login` | `{}` | `{id: string}` |
+| Methods | Endpoint  | Input | Output |
+| --- | --- | --- | --- |
+| POST | `/login` | `{}` | `{id: string}` |
+| GET | `/account/{accountNumber}` | | "first_name": "", "last_name": "" |
+| POST | `/transfer` | | |
 
 ## Example
 
@@ -27,18 +29,15 @@ TBD
 ## Usage
 
 1. Clone Repo
-2. Run `make` to create bin folder
-3. Open Docker and create postgreSQL table
-4. Run `make run` to run on port: 3000
-5. Run `make seed` to seed the database with initial account data
-6. POST request in Postman or Thunderclient to `http://localhost:3000/[endpoint]`
+2. Create .env file with values for: [POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_NAME, JWT_SECRET]
+3. Run `make` to create bin folder
+4. Run `make db-up` to start a PostgreSQL container with the specified configuration in `./docker-compose.yml`
+5. Run `make run` to run on port: 3000
+6. Run `make seed` to seed the database with initial account data
+7. POST request in Postman or Thunderclient to `http://localhost:3000/[endpoint]`
     a. Sample endpoints: ["/login", ]
-7. Run tests by running `make test`
-
-To delete docker containers:
-
-1. `docker ps`
-2. `docker stop {name}`
+8. Run tests by running `make test`
+9. When finished, stop and remove the containers by running `make db-down`
 
 ## Roadmap
 

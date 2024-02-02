@@ -29,8 +29,10 @@ func NewPostgresStore() (*PostgresStore, error) {
 		log.Fatalf("Error loading environment variables file: %v", err)
 	}
 	postgresPassword := os.Getenv("POSTGRES_PASSWORD")
+	postgresName := os.Getenv("POSTGRES_NAME")
+	postgresUser := os.Getenv("POSTGRES_USER")
 
-	connStr := "user=postgres dbname=postgres password=" + postgresPassword + " sslmode=disable"
+	connStr := "user=" + postgresUser + " dbname=" + postgresName + " password=" + postgresPassword + " sslmode=disable"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
