@@ -3,7 +3,8 @@
 <img src="logo.png" alt="Logo" width="200" height="200">
 
 [![Go](https://img.shields.io/badge/go-1.16-blue.svg)](https://golang.org/)
-[![Makefile](https://img.shields.io/badge/Makefile-Yes-green.svg)](Makefile)
+[![Makefile](https://img.shields.io/badge/Makefile-green.svg)](Makefile)
+[![Docker](https://img.shields.io/badge/Docker-blue.svg)](https://www.docker.com/)
 
 ## Table of Contents
 
