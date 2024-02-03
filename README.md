@@ -2,9 +2,9 @@
 
 <img src="logo.png" alt="Logo" width="200" height="200">
 
-[![Go](https://img.shields.io/badge/go-1.16-blue.svg)](https://golang.org/)
-[![Makefile](https://img.shields.io/badge/Makefile-green.svg)](Makefile)
-[![Docker](https://img.shields.io/badge/Docker-blue.svg)](https://www.docker.com/)
+[![Go](https://img.shields.io/badge/go-1.20-blue.svg)](https://golang.org/)
+[![Makefile](https://img.shields.io/badge/Makefile-Yes-green.svg)](Makefile)
+[![Docker](https://img.shields.io/badge/Docker-Yes-blue.svg)](https://www.docker.com/)
 
 ## Table of Contents
 
@@ -23,8 +23,8 @@ JSON banking API project in Golang with JWT authentication, Postgresql, and Dock
 | POST | `/transfer` | `` | `` |
 | POST | `/account` | `FirstName: string, LastName: string, Password: string` | `` |
 | GET | `/account` | `` | [`ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string`] |
-| GET | `/account/{accountNumber}` | `` | `ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string` |
-| DELETE | `/account/{accountNumber}` | `` | `Deleted: {id}` |
+| GET | `/account/{accountNumber}` | `accountNumber: integer` | `ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string` |
+| DELETE | `/account/{accountNumber}` | `` | `Deleted: "{id}"` |
 
 ### Third Party Packages
 
@@ -57,3 +57,4 @@ TBD
 - [ ] Update endpoint table in README
 - [ ] Add example to README
 - [ ] Complete `/transfer` endpoint allowing balance movements between accounts
+- [ ] Add documentation for JWT_SECRET variable requirement
