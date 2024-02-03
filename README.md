@@ -19,9 +19,16 @@ JSON banking API project in Golang with JWT authentication, Postgresql, and Dock
 
 | Methods | Endpoint  | Input | Output |
 | --- | --- | --- | --- |
-| POST | `/login` | `{}` | `{id: string}` |
-| GET | `/account/{accountNumber}` | | "first_name": "", "last_name": "" |
+| POST | `/login` | `Number: integer, Password: string` | `Token: string, Number: integer` |
 | POST | `/transfer` | | |
+| POST | `/account` | `FirstName: string, LastName: string, Password: string` | `` |
+| GET | `/account` | `` | [`ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string`] |
+| GET | `/account/{accountNumber}` | `` | `ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string` |
+| DELETE | `/account/{accountNumber}` | `` | `Deleted: {id}` |
+
+### Third Party Libraries
+
+- Mux
 
 ## Example
 
@@ -44,3 +51,4 @@ TBD
 
 - [ ] Update endpoint table in README
 - [ ] Add example to README
+- [ ] Complete `/transfer` endpoint allowing balance movements between accounts
