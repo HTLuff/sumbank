@@ -2,7 +2,7 @@
 
 <img src="logo.png" alt="Logo" width="200" height="200">
 
-[![Go](https://img.shields.io/badge/go-1.20-blue.svg)](https://golang.org/)
+[![Go](https://img.shields.io/badge/Go-1.20-blue.svg)](https://golang.org/)
 [![Makefile](https://img.shields.io/badge/Makefile-Yes-green.svg)](Makefile)
 [![Docker](https://img.shields.io/badge/Docker-Yes-blue.svg)](https://www.docker.com/)
 
@@ -54,7 +54,7 @@ TBD
 
 ## Roadmap
 
-- [ ] Update endpoint table in README
+- [ ] Complete endpoint table in README
 - [ ] Add example to README
 - [ ] Complete `/transfer` endpoint allowing balance movements between accounts
 - [ ] Add documentation for JWT_SECRET variable requirement
