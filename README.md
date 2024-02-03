@@ -20,15 +20,20 @@ JSON banking API project in Golang with JWT authentication, Postgresql, and Dock
 | Methods | Endpoint  | Input | Output |
 | --- | --- | --- | --- |
 | POST | `/login` | `Number: integer, Password: string` | `Token: string, Number: integer` |
-| POST | `/transfer` | | |
+| POST | `/transfer` | `` | `` |
 | POST | `/account` | `FirstName: string, LastName: string, Password: string` | `` |
 | GET | `/account` | `` | [`ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string`] |
 | GET | `/account/{accountNumber}` | `` | `ID: number, FirstName: string, LastName: string, Number: string, EncryptedPassword: string, Balance: integer, CreatedAt: string` |
 | DELETE | `/account/{accountNumber}` | `` | `Deleted: {id}` |
 
-### Third Party Libraries
+### Third Party Packages
 
-- Mux
+- gorilla/mux: a powerful and flexible HTTP router and dispatcher. Used to extract variables from the request (e.g., query parameters, form values) easily, making it straightforward to handle user input and build dynamic responses.
+- golang-jwt: JSON Web Tokens, commonly used for Bearer tokens in Oauth 2. jwt-go provides a flexible and extensible way to handle claims in JWTs. Claims represent pieces of information about the entity (user, client) that the token identifies, as well as Token Expiration and Validation and Verification.
+- godotenv: load environment variables from a file, typically named `.env`.
+- PQ: a pure Go Postgres driver for the database/sql package.
+- bCrypt: implements Provos and Mazières's bcrypt adaptive hashing algorithm.
+- testify/asset: provides a set of comprehensive testing tools for use with the normal Go testing system.
 
 ## Example
 
