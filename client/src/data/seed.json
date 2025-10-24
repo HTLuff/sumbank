@@ -1,0 +1,21 @@
+{
+  "user": {
+    "id": "u123",
+    "name": "Test User",
+    "balance": 1250.5
+  },
+  "transactions": [
+    {
+      "id": "t1",
+      "amount": -50.0,
+      "to": "Coffee Shop",
+      "timestamp": "2025-10-24T09:00:00Z"
+    },
+    {
+      "id": "t2",
+      "amount": 200.0,
+      "to": "Salary",
+      "timestamp": "2025-10-23T10:00:00Z"
+    }
+  ]
+}

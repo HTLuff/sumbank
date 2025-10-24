@@ -1,0 +1,142 @@
+{
+  "updatedAt": "2025-10-24T10:15:00Z",
+
+  "kpis": {
+    "activeUsers": 1284,
+    "p95LatencyMs": 142,
+    "errorRatePct": 0.6,
+    "apiReqPerMin": 870,
+    "lambdaInvocationsPerMin": 420,
+    "ddbReadRCU": 210,
+    "ddbWriteWCU": 95,
+    "projectorLagSec": 3,
+    "reconMismatchesToday": 0,
+
+    "transfersPerMin": 62,
+    "transferSuccessRatePct": 99.1,
+    "transferRejectedToday": 3
+  },
+
+  "slos": {
+    "uptime7dPct": 99.96,
+    "errorBudgetRemainingPct": 87.0,
+    "burnRate24h": 0.35
+  },
+
+  "ledgerConsistency": {
+    "totalDiscrepancies": 0,
+    "lastCheckAt": "2025-10-24T10:00:00Z"
+  },
+
+  "synthetics": [
+    {
+      "endpoint": "/health",
+      "region": "eu-west-2",
+      "latencyMs": 120,
+      "status": "ok"
+    },
+    {
+      "endpoint": "/balance",
+      "region": "eu-west-2",
+      "latencyMs": 138,
+      "status": "ok"
+    },
+    {
+      "endpoint": "/transfer",
+      "region": "eu-west-2",
+      "latencyMs": 212,
+      "status": "ok"
+    },
+    {
+      "endpoint": "/transfer",
+      "region": "us-east-1",
+      "latencyMs": 245,
+      "status": "ok"
+    }
+  ],
+
+  "services": [
+    { "name": "API Gateway", "status": "healthy" },
+    { "name": "Lambda API", "status": "healthy" },
+    { "name": "Balance Projector", "status": "healthy" },
+    { "name": "DynamoDB Streams", "status": "healthy" },
+    { "name": "Cognito", "status": "degraded" },
+    { "name": "EventBridge Scheduler", "status": "healthy" },
+    { "name": "CloudFront", "status": "healthy" }
+  ],
+
+  "incidents": [
+    {
+      "id": "INC-2025-10-23-001",
+      "severity": "high",
+      "detectedAt": "2025-10-23T14:22:10Z",
+      "ackAt": "2025-10-23T14:23:00Z",
+      "resolvedAt": "2025-10-23T14:36:45Z",
+      "summary": "Elevated 5xx from Lambda API after deployment; rolled back via canary fail."
+    },
+    {
+      "id": "INC-2025-10-22-002",
+      "severity": "low",
+      "detectedAt": "2025-10-22T09:10:00Z",
+      "ackAt": "2025-10-22T09:16:00Z",
+      "resolvedAt": "2025-10-22T09:35:00Z",
+      "summary": "Increased projector lag due to burst in DynamoDB Streams; autoscaling adjusted."
+    }
+  ],
+
+  "recentEvents": [
+    {
+      "ts": "2025-10-24T10:12:05Z",
+      "type": "TRANSFER_CREATED",
+      "accountId": "u123",
+      "amount": -12.5,
+      "status": "PENDING"
+    },
+    {
+      "ts": "2025-10-24T10:12:06Z",
+      "type": "TRANSFER_APPLIED",
+      "accountId": "u123",
+      "amount": -12.5,
+      "status": "SETTLED"
+    },
+    {
+      "ts": "2025-10-24T10:11:10Z",
+      "type": "BALANCE_READ",
+      "accountId": "u987",
+      "amount": 0,
+      "status": "OK"
+    },
+    {
+      "ts": "2025-10-24T10:10:44Z",
+      "type": "RECON_CHECK",
+      "accountId": "-",
+      "amount": 0,
+      "status": "OK"
+    },
+    {
+      "ts": "2025-10-24T10:09:17Z",
+      "type": "TRANSFER_REJECTED",
+      "accountId": "u555",
+      "amount": -3000.0,
+      "status": "REJECTED"
+    }
+  ],
+
+  "auditLog": [
+    {
+      "ts": "2025-10-24T10:05:00Z",
+      "admin": "harry",
+      "action": "Updated API Gateway throttle to 1200 rpm"
+    },
+    {
+      "ts": "2025-10-24T09:40:00Z",
+      "admin": "harry",
+      "action": "Enabled X-Ray tracing on Lambda API"
+    },
+    {
+      "ts": "2025-10-24T09:15:00Z",
+      "admin": "ops-bot",
+      "action": "Rotated KMS data key for ledger bucket"
+    }
+  ]
+}
