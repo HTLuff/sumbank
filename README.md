@@ -122,16 +122,28 @@ cdk deploy
 
 ```mermaid
 graph TD
-  A[Frontend: React Client] -->|POST /transfer| B[API Gateway]
-  B --> C[Lambda Handler (Go)]
-  C --> D[DynamoDB Transfers Table]
-  D -->|Stream Event| E[Balance Projector Lambda]
-  E --> F[DynamoDB Balances Table]
-  F --> G[API /balance Response]
-  C --> H[EventBridge: Audit Event]
-  H --> I[S3 Audit Log Bucket]
-  I --> J[Admin Dashboard JSON Feed]
-  J --> K[Admin Page: React Dashboard]
+  A[Frontend: React Client]
+  B[API Gateway]
+  C[Lambda Handler - Go]
+  D[DynamoDB Transfers Table]
+  E[Balance Projector Lambda]
+  F[DynamoDB Balances Table]
+  G[API /balance Response]
+  H[EventBridge: Audit Event]
+  I[S3 Audit Log Bucket]
+  J[Admin Dashboard JSON Feed]
+  K[Admin Page: React Dashboard]
+
+  A -->|POST /transfer| B
+  B --> C
+  C --> D
+  D -->|Stream event| E
+  E --> F
+  F --> G
+  C --> H
+  H --> I
+  I --> J
+  J --> K
 ```
 
 1. Frontend calls `/api/transfer` through API Gateway.
