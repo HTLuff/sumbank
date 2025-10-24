@@ -37,7 +37,7 @@ The goal is not a full product, but a **portfolio-grade demonstration** of:
 
 ### Structure
 
-```
+```text
 sum-bank/
   client/
     src/
@@ -121,14 +121,13 @@ cdk deploy
 ## Data Flow
 
 ```mermaid
-flowchart TD
+graph TD
   A[Frontend: React Client] -->|POST /transfer| B[API Gateway]
   B --> C[Lambda Handler (Go)]
   C --> D[DynamoDB Transfers Table]
   D -->|Stream Event| E[Balance Projector Lambda]
   E --> F[DynamoDB Balances Table]
   F --> G[API /balance Response]
-
   C --> H[EventBridge: Audit Event]
   H --> I[S3 Audit Log Bucket]
   I --> J[Admin Dashboard JSON Feed]
