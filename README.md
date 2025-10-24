@@ -172,6 +172,55 @@ The `/admin` dashboard exposes realistic operational metrics for an event-driven
 
 These mirror what real fintech and banking teams track to maintain reliability and compliance.
 
+```mermaid
+graph TD
+  %% --- Producers ---
+  APIGW[API Gateway - metrics]
+  LAMBDA[Lambda - app]
+  DDB[DynamoDB - service metrics]
+  CWLOGS[CloudWatch Logs]
+  CWMETRICS[CloudWatch Metrics]
+  XRAY[X-Ray traces]
+
+  %% --- Orchestration & Query ---
+  SCHED[EventBridge Scheduler]
+  AGG[Lambda - metrics aggregator]
+  INSIGHTS[Logs Insights - saved query]
+
+  %% --- Storage & Serve ---
+  S3[S3 - metrics bucket - admin.json]
+  API[API Gateway - /admin/metrics]
+  CF[CloudFront]
+  FE[Admin Page - React]
+
+  %% --- IAM & Security ---
+  IAM[IAM role - aggregator perms]
+  KMS[KMS encryption]
+
+  %% Edges: producers -> aggregator
+  SCHED -->|cron 1m| AGG
+  AGG -->|GetMetricData| CWMETRICS
+  AGG -->|service stats| APIGW
+  AGG -->|service stats| LAMBDA
+  AGG -->|table metrics| DDB
+  AGG -->|trace summaries| XRAY
+  CWLOGS --> INSIGHTS
+  AGG -->|start query| INSIGHTS
+
+  %% Write aggregated snapshot
+  IAM --> AGG
+  KMS --> S3
+  AGG -->|write JSON snapshot| S3
+
+  %% Serve to frontend
+  S3 --> API
+  API --> CF
+  CF --> FE
+
+  %% Optional direct read for demos
+  S3 -.public or signed URL .-> FE
+```
+
 ---
 
 ## Example Admin Metrics
