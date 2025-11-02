@@ -27,7 +27,9 @@ export default function SignIn() {
         {/* Logo placeholder */}
         <div className="flex items-center gap-2">
           <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-fuchsia-500 via-rose-500 to-amber-400" />
-          <span className="text-xl font-semibold tracking-tight">sum bank</span>
+          <span className="text-xl font-semibold tracking-tight">
+            sum bank3
+          </span>
         </div>
       </header>
 
